@@ -9,6 +9,10 @@ CREATE table choices (
     restaurant VARCHAR(255)
 );
 
+INSERT INTO choices (restaurant) VALUES ("McDonalds");
+INSERT INTO choices (restaurant) VALUES ("Arby's");
+INSERT INTO choices (restaurant) VALUES ("Taco Hell");
+INSERT INTO choices (restaurant) VALUES ("Pita Pit");
 
 
 -- to run this file: navigate to the directory that contains shchema.sql
