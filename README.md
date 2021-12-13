@@ -31,12 +31,12 @@ For Review use purpose:
 - **Note** You may need to change root in the above command to match your local db permissions
 
 ## Step 1
-- Create an express server that will listen on port 3001
-- Direct all requests after the url '/api'
-- Verify that traffic is being recieved and responded to correctly at each stage! (Postman?)
+x Create an express server that will listen on port 3001
+x Direct all requests after the url '/api'
+x Verify that traffic is being recieved and responded to correctly at each stage! (Postman?)
 
 ## Step 2
-- Create a get route to return all choices
+x Create a get route to return all choices
 - Create a get route to return a specific restaurant
 - Create a get route to submit a post request with just "restaurant" as body
 - Test via Postman
