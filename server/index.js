@@ -15,7 +15,7 @@ app.get('/app/main', (req, res) => {
 
 app.get('/app/main/:id', (req, res) => {
   var { id } = req.params;
-  dbUtils.addOne(id, (err, results) => {
+  dbUtils.getOne(id, (err, results) => {
     err ? res.send(err) : res.send(results);
   })
 })
@@ -26,8 +26,22 @@ app.post('/app/main', (req, res) => {
   })
 })
 
+app.delete('/app/main/:id', (req, res) => {
+  var { id } = req.params;
+  dbUtils.deleteOne(id, (err, results) => {
+    err ? res.send(err) : res.send(results);
+  })
+})
+
 app.delete('/app/main', (req, res) => {
-  dbUtils.deleteOne((err, results) => {
+  dbUtils.deleteAll((err, results) => {
+    err ? res.send(err) : res.send(results);
+  })
+})
+
+app.put('/app/main/:id', (req, res) => {
+  var { id } = req.params;
+  dbUtils.updateOne(id, req.body, (err, results) => {
     err ? res.send(err) : res.send(results);
   })
 })

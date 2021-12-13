@@ -12,7 +12,7 @@ let helpers = {
         })
     },
     getOne: (data, callback) => {
-        let { id } = data;
+        let id = data;
         let queryString = `SELECT * FROM choices WHERE id=('${id}');`
         db.query(queryString, (err, results) => {
             if (err) {
@@ -24,7 +24,7 @@ let helpers = {
     },
     addOne: (data, callback) => {
         let { restaurant } = data
-        let queryString = `INSERT INTO choices(restaurant) VALUES('${restaurant}');`
+        let queryString = `INSERT INTO choices (restaurant) VALUES('${restaurant}');`
         db.query(queryString, (err, results) => {
             if (err) {
                 callback(err);
@@ -34,8 +34,8 @@ let helpers = {
         })
     },
     deleteOne: (data, callback) => {
-        let { restaurant } = data;
-        let queryString = `DELETE FROM choices WHERE restaurant='${restaurant}';`
+        let id = data;
+        let queryString = `DELETE FROM choices WHERE id='${id}';`
         db.query(queryString, (err, results) => {
             if (err) {
                 callback(err);
@@ -44,8 +44,27 @@ let helpers = {
             }
         })
     },
-    updateOne: (req, res) => {
-
+    deleteAll: (callback) => {
+        let queryString = 'DELETE FROM choices;';
+        db.query(queryString, (err, results) => {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, results);
+            }
+        })
+    },
+    updateOne: (data, newRestaurant, callback) => {
+        let id = data;
+        let { restaurant } = newRestaurant;
+        let queryString = `UPDATE choices SET restaurant='${restaurant}' WHERE id='${id}';`
+        db.query(queryString, (err, results) => {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, results);
+            }
+        })
     }
 }
 
